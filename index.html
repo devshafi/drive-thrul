@@ -1,47 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Price and location</title>
+    <title>DriveThrul area search</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-    <!-- load vue -->
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="app.js" type="module"></script>
-    <script src="data.js" type="module"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="place.js"></script>
 
-    <link rel="stylesheet" href="style.css" />
+    
   </head>
   <body>
-    <div id="app" style="margin-top: 20px; padding: 1rem;  font-family: 'Open Sans', sans-serif;">
-        <div class="logo">
-            <img src="images/logo.png" class="" alt="">  
-        </div>
-      <p style="text-align: center;">Please test with these fake postal codes: 100, 200, 300, 400 </p>
+    
+    <div id="map"></div>
+    
+
+    <div
+      id="app"
+      style="
+        margin-top: 20px;
+        padding: 1rem;
+        font-family: 'Open Sans', sans-serif;
+      "
+    >
+      <div class="logo">
+        <img src="images/logo.png" class="" alt="" />
+      </div>
+      
       <div class="search-container">
         <div class="icon-input">
-            <i class="fa-solid location-icon fa-location-dot fa-xl"></i>
-            <input
-              class="price-input"
-              type="text"
-              placeholder="Enter postcode"
-              @input="search(number)"
-              v-model="input"
-            />
+          <i class="fa-solid location-icon fa-location-dot fa-xl"></i>
+
+          <input
+            class="price-input"
+            id="pac-input"
+            type="text"
+            placeholder="Enter a location"
+          />
         </div>
-        <button class="btn">Get Prices</button>
-      </div>
-      <div v-if="searchedData.length>0" class="card-container">
-        <div class="price-card" v-for="(data,i) in searchedData" :key="i">
-          <h2>Location: {{data.location}}</h2>
-          <h2>Price: ${{data.price}}</h2>
-        </div>
-      </div>
-      <div v-if="searchedData.length<1 && input.length >0" class="no-data">
-        No data found !
+        <!-- <button class="btn">Get Prices</button> -->
       </div>
     </div>
-    <script src="https://kit.fontawesome.com/dbb8b425d7.js" crossorigin="anonymous"></script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSkmpeW8iiCoknhzfzn8Xy9ONKlK_JZ1k&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/dbb8b425d7.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
