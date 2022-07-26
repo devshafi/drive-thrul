@@ -72,7 +72,7 @@
 //         marker.setVisible(false);
 
 
-       
+
 //         const place = autocomplete.getPlace();
 
 //         console.log('place', place);
@@ -82,7 +82,7 @@
 
 //         // urlParams.set('place', place.name);
 //         // window.location.search = urlParams;
-         
+
 
 //         if (!place.geometry || !place.geometry.location) {
 //             // User entered the name of a Place that was not suggested and
@@ -102,7 +102,7 @@
 //         marker.setPosition(place.geometry.location);
 //         marker.setVisible(true);
 
-      
+
 //     });
 
 //     // Sets a listener on a radio button to change the filter type on Places
@@ -119,15 +119,16 @@
 //     setupClickListener("changetype-cities", ["(cities)"]);
 //     setupClickListener("changetype-regions", ["(regions)"]);
 
-   
 
-    
+
+
 // }
 function initMap() {
+    const resultDiv = document.querySelector('.search_area--result')
+    const btnSearch = document.querySelector('.btn-search')
 
-    
     const input = document.getElementById("pac-input");
-     
+
     const options = {
         fields: ["formatted_address", "geometry", "name"],
         strictBounds: false,
@@ -142,21 +143,30 @@ function initMap() {
         const innerDiv = document.createElement('div')
         innerDiv.classList.add('inner')
 
+        if (input.value.length == 0) {
+            resultDiv.classList.add('hidden')
+        }
 
         container.append(innerDiv)
         console.log('pac-container', container)
         console.log('autocomplete', autocomplete);
     })
 
+    btnSearch.addEventListener('click', function () {
+        if (input.value.length > 0) {
+            resultDiv.classList.remove('hidden')
+        }
+    })
+
 
     autocomplete.addListener("place_changed", () => {
-     
-       
+        resultDiv.classList.remove('hidden')
+
         const place = autocomplete.getPlace();
         console.log('place', place);
 
         // const urlParams = new URLSearchParams(window.location.search);
-        window.location.assign(`/area.html?place=${place.formatted_address}`)
+        // window.location.assign(`/area.html?place=${place.formatted_address}`)
 
         // urlParams.set('place', place.name);
         // window.location.search = urlParams;

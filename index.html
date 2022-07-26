@@ -10,7 +10,8 @@
     <script type="module" src="place.js"></script>
   </head>
   <body>
-    <div
+    
+    <!-- <div
       id="app"
       style="
         margin-top: 20px;
@@ -33,9 +34,46 @@
             placeholder="Enter a Post Code or Location"
           />
         </div>
-        <!-- <button class="btn">Get Prices</button> -->
+
+        
+    </div> -->
+
+    <!-- real markup starts here -->
+    <section class="search_area">
+      <div class="search_area-left">
+        <h3 class="search_area-left--title">Find prices in your area</h3>
+        <div class="search_area-input-group">
+          <i class="fa-solid location-icon fa-location-dot fa-xl"></i>
+          <input
+            class="price-input"
+            id="pac-input"
+            type="text"
+            placeholder="Enter a Post Code or Location"
+          />
+          <button class="btn btn-search">FIND</button>
+        </div>
+        <div class="search_area--result hidden">
+          <div class="search_area--result-left">
+            <h2>£60/ 2 FULL Hour</h2>
+            <p>5 HOURS BLOCK BOOKING</p>
+          </div>
+          <div class="search_area--result-right">
+            <button class="book">BOOK NOW</button>
+          </div>
+
+        </div>
       </div>
-    </div>
+      <div class="search_area-right">
+        <a href="#" class="area-btn"><span>London </span> <i class="fa-solid fa-arrow-right"></i> </a>
+        <a href="#" class="area-btn"><span>Manchester </span> <i class="fa-solid fa-arrow-right"></i> </a>
+        <a href="#" class="area-btn"><span>Winchester </span> <i class="fa-solid fa-arrow-right"></i> </a>
+        <a href="#" class="area-btn"><span>Winchester </span> <i class="fa-solid fa-arrow-right"></i> </a>
+        <a href="#" class="area-btn"><span>London </span> <i class="fa-solid fa-arrow-right"></i> </a>
+        <a href="#" class="area-btn"><span>London </span> <i class="fa-solid fa-arrow-right"></i> </a>
+      </div>
+    </section>
+    <!-- real markup ends here -->
+  </div>
 
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSkmpeW8iiCoknhzfzn8Xy9ONKlK_JZ1k&callback=initMap&libraries=places&v=weekly"
