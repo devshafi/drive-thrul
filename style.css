@@ -73,6 +73,7 @@ border-radius: 8px;
     background: #d01337;
 }
 .search_area--result.hidden {
+    width: 0;
     height: 0;
     opacity: 0;
     padding: 0;
